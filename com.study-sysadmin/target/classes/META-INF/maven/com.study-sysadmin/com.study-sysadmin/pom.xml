@@ -5,6 +5,15 @@
     <artifactId>com.study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>com.study-api</groupId>
+  		<artifactId>com.study-api</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  </dependencies>
+  
   <groupId>com.study-sysadmin</groupId>
   <artifactId>com.study-sysadmin</artifactId>
 </project>

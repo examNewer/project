@@ -1,12 +1,29 @@
 package com.study.sysadmin.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 //系统管理员
+@Table(name = "administrator")
 public class Administrator {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer adminId;//管理员编号
+	
+	@Column(name = "admin_name")
 	private String adminName;//管理员姓名
+	
+	@Column(name = "admin_headportrait")
 	private String adminHeadPortrait;//管理员头像
+	
+	@Column(name = "admin_account")
 	private String adminAccount;//管理员账号
+	
+	@Column(name = "admin_pwd")
 	private String adminPwd;//管理员密码
 	
 	

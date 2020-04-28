@@ -1,6 +1,4 @@
-package com.study.sysadmin.domain;
-
-import com.study.api.domain.TeaUser;
+package com.study.api.domain;
 
 //认证
 public class Authentication {

@@ -1,4 +1,4 @@
-package com.study.api.domain;
+package com.study.student.domain;
 
 import java.util.Date;
 

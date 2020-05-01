@@ -15,8 +15,10 @@ public class StuUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "stu_id")
 	private Integer stuId;//学生编号
+	@Column(name = "username")
 	private String userName;//用户名
 	private String pwd;//密码
+	@Column(name = "headimg")
 	private String headImg;//头像
 	private String sex;//性别
 	@Column(name = "is_member")
@@ -56,7 +58,7 @@ public class StuUser {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public int getIsMember() {
+	public Integer getIsMember() {
 		return isMember;
 	}
 	public void setIsMember(Integer isMember) {
@@ -68,7 +70,7 @@ public class StuUser {
 	public void setMemberEndTime(Date memberEndTime) {
 		this.memberEndTime = memberEndTime;
 	}
-	public int getWeChatId() {
+	public Integer getWeChatId() {
 		return weChatId;
 	}
 	public void setWeChatId(Integer weChatId) {

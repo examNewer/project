@@ -45,5 +45,33 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/maven/repository/org/mybatis/mybatis/3.4.4/mybatis-3.4.4.jar" sourcepath="C:/maven/repository/org/mybatis/mybatis/3.4.4/mybatis-3.4.4-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.mybatis"/>
+			<attribute name="maven.artifactId" value="mybatis"/>
+			<attribute name="maven.version" value="3.4.4"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/mybatis10/lib/mybatis-3.4.6.jar" sourcepath="H:/jar/Mybatis/mybatis-3.4.6-src.zip"/>
+	<classpathentry kind="lib" path="C:/maven/repository/org/mybatis/mybatis/3.5.3/mybatis-3.5.3.jar" sourcepath="C:/maven/repository/org/mybatis/mybatis/3.5.3/mybatis-3.5.3-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.mybatis"/>
+			<attribute name="maven.artifactId" value="mybatis"/>
+			<attribute name="maven.version" value="3.5.3"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/maven/repository/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar" sourcepath="C:/maven/repository/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="mysql"/>
+			<attribute name="maven.artifactId" value="mysql-connector-java"/>
+			<attribute name="maven.version" value="8.0.18"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -11,16 +11,17 @@ import javax.persistence.Table;
  *
  * 2020年5月1日
  */
+//广告表
 @Table(name = "advertising")
 public class Advertising {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer advertisingId;
-	private int cid;
-	private String advertisingImg;
-	private String advertisingDescribe;
+	private Integer advertisingId;//广告编号
+	private int cid;//课程编号
+	private String advertisingImg;//图片
+	private String advertisingDescribe;//描述
 	@Column(name = "is_c")
-	private int isC;
+	private int isC;//是否是上广告栏，0：不上广告栏，1：首页广告栏，2：课程中心广告栏
 	
 	public Integer getAdvertisingId() {
 		return advertisingId;

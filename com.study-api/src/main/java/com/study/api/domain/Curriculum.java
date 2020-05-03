@@ -1,23 +1,49 @@
 package com.study.api.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 //课程
+@Table(name = "curriculum")
 public class Curriculum {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cid")
 	private Integer cId;//课程编号
+	@Column(name = "ce_id")
+	private Integer ceId;//类别Id
+	private Integer tId;//教师id
 	private Classify classify;//类别
 	private TeaUser teaUser;//教师用户
+	@Column(name = "cname")
 	private String cName;//课程名字
-	private int isPay;//是否需要会员
+	@Column(name = "is_pay")
+	private Integer isPay;//是否需要会员
+	@Column(name = "sign_num")
 	private int signNum;//报名数
+	@Column(name = "introduce_img")
 	private String introduceImg;//课程图
 	private String status;//状态
-	
-	
 	public Integer getcId() {
 		return cId;
 	}
 	public void setcId(Integer cId) {
 		this.cId = cId;
+	}
+	public Integer getCeId() {
+		return ceId;
+	}
+	public void setCeId(Integer ceId) {
+		this.ceId = ceId;
+	}
+	public Integer gettId() {
+		return tId;
+	}
+	public void settId(Integer tId) {
+		this.tId = tId;
 	}
 	public Classify getClassify() {
 		return classify;
@@ -37,10 +63,10 @@ public class Curriculum {
 	public void setcName(String cName) {
 		this.cName = cName;
 	}
-	public int getIsPay() {
+	public Integer getIsPay() {
 		return isPay;
 	}
-	public void setIsPay(int isPay) {
+	public void setIsPay(Integer isPay) {
 		this.isPay = isPay;
 	}
 	public int getSignNum() {
@@ -62,18 +88,20 @@ public class Curriculum {
 		this.status = status;
 	}
 	
+	
+	/**
+	 * 
+	 */
 	public Curriculum() {
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Curriculum [cId=" + cId + ", classify=" + classify + ", teaUser=" + teaUser + ", cName=" + cName
-				+ ", isPay=" + isPay + ", signNum=" + signNum + ", introduceImg=" + introduceImg + ", status=" + status
-				+ "]";
-	}
-	public Curriculum(Integer cId, Classify classify, TeaUser teaUser, String cName, int isPay, int signNum,
-			String introduceImg, String status) {
+	
+	public Curriculum(Integer cId, Integer ceId, Integer tId, Classify classify, TeaUser teaUser, String cName,
+			Integer isPay, int signNum, String introduceImg, String status) {
+		super();
 		this.cId = cId;
+		this.ceId = ceId;
+		this.tId = tId;
 		this.classify = classify;
 		this.teaUser = teaUser;
 		this.cName = cName;
@@ -82,10 +110,11 @@ public class Curriculum {
 		this.introduceImg = introduceImg;
 		this.status = status;
 	}
-	
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
+	public String toString() {
+		return "Curriculum [cId=" + cId + ", ceId=" + ceId + ", tId=" + tId + ", classify=" + classify
+				+ ", teaUser=" + teaUser + ", cName=" + cName + ", isPay=" + isPay + ", signNum=" + signNum
+				+ ", introduceImg=" + introduceImg + ", status=" + status + "]";
 	}
+	
 }

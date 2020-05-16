@@ -20,6 +20,12 @@ public interface CurriculumService {
 	 * @param isPay
 	 * @return
 	 */
-	public PageInfo<Curriculum> findCurriculums(String ceId,String isPay,PageDto pageDto);
+	public PageInfo<Curriculum> findCurriculums(String ceId,String isPay,String cname,PageDto pageDto);
+	/**
+	 * 根据课程编号查询该课程的课程信息，所有章节信息，所有评论信息，发布该课程的教师信息
+	 * @param cId
+	 * @return
+	 */
+	public Curriculum findCurriculumById(Integer cId);
 
 }

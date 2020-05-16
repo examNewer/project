@@ -1,5 +1,7 @@
 package com.study.api.domain;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +29,21 @@ public class Curriculum {
 	@Column(name = "introduce_img")
 	private String introduceImg;//课程图
 	private String status;//状态
+	private ArrayList<Comment> comments;//课程的评论
+	private ArrayList<Section> sections;//课程的章节
+	
+	public ArrayList<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(ArrayList<Comment> comments) {
+		this.comments = comments;
+	}
+	public ArrayList<Section> getSections() {
+		return sections;
+	}
+	public void setSections(ArrayList<Section> sections) {
+		this.sections = sections;
+	}
 	public Integer getcId() {
 		return cId;
 	}
@@ -95,9 +112,9 @@ public class Curriculum {
 	public Curriculum() {
 		// TODO Auto-generated constructor stub
 	}
-	
 	public Curriculum(Integer cId, Integer ceId, Integer tId, Classify classify, TeaUser teaUser, String cName,
-			Integer isPay, int signNum, String introduceImg, String status) {
+			Integer isPay, int signNum, String introduceImg, String status, ArrayList<Comment> comments,
+			ArrayList<Section> sections) {
 		super();
 		this.cId = cId;
 		this.ceId = ceId;
@@ -109,12 +126,16 @@ public class Curriculum {
 		this.signNum = signNum;
 		this.introduceImg = introduceImg;
 		this.status = status;
+		this.comments = comments;
+		this.sections = sections;
 	}
 	@Override
 	public String toString() {
-		return "Curriculum [cId=" + cId + ", ceId=" + ceId + ", tId=" + tId + ", classify=" + classify
-				+ ", teaUser=" + teaUser + ", cName=" + cName + ", isPay=" + isPay + ", signNum=" + signNum
-				+ ", introduceImg=" + introduceImg + ", status=" + status + "]";
+		return "Curriculum [cId=" + cId + ", ceId=" + ceId + ", tId=" + tId + ", classify=" + classify + ", teaUser="
+				+ teaUser + ", cName=" + cName + ", isPay=" + isPay + ", signNum=" + signNum + ", introduceImg="
+				+ introduceImg + ", status=" + status + ", comments=" + comments + ", sections=" + sections + "]";
 	}
+	
+	
 	
 }

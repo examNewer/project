@@ -17,7 +17,7 @@ public class Advertising {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer advertisingId;//广告编号
-	private int cid;//课程编号
+	private Integer cid;//课程编号
 	private String advertisingImg;//图片
 	private String advertisingDescribe;//描述
 	@Column(name = "is_c")
@@ -29,10 +29,10 @@ public class Advertising {
 	public void setAdvertisingId(Integer advertisingId) {
 		this.advertisingId = advertisingId;
 	}
-	public int getCid() {
+	public Integer getCid() {
 		return cid;
 	}
-	public void setCid(int cid) {
+	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
 	public String getAdvertisingImg() {
@@ -58,7 +58,7 @@ public class Advertising {
 	public Advertising() {
 		// TODO Auto-generated constructor stub
 	}
-	public Advertising(Integer advertisingId, int cid, String advertisingImg, String advertisingDescribe, int isC) {
+	public Advertising(Integer advertisingId, Integer cid, String advertisingImg, String advertisingDescribe, int isC) {
 		super();
 		this.advertisingId = advertisingId;
 		this.cid = cid;

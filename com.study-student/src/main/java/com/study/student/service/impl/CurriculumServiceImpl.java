@@ -28,7 +28,7 @@ public class CurriculumServiceImpl implements CurriculumService{
 	@Autowired
 	private CurriculumMapper curriculumMapper;
 	@Override
-	public PageInfo<Curriculum> findCurriculums(String ceId, String isPay,PageDto pageDto) {
+	public PageInfo<Curriculum> findCurriculums(String ceId, String isPay,String cname,PageDto pageDto) {
 		// TODO Auto-generated method stub
 		//CurriculumDto dto=new CurriculumDto(ceId,isPay);
 		if("全部".equals(ceId)) {
@@ -38,8 +38,13 @@ public class CurriculumServiceImpl implements CurriculumService{
 			isPay="";
 		}
 		PageHelper.startPage(pageDto.getPage(), pageDto.getPageSize());
-		List<Curriculum> list=this.curriculumMapper.findCurriculums("%"+ceId+"%","%"+isPay+"%");
+		List<Curriculum> list=this.curriculumMapper.findCurriculums("%"+ceId+"%","%"+isPay+"%","%"+cname+"%");
 		return new PageInfo<Curriculum>(list);
+	}
+	@Override
+	public Curriculum findCurriculumById(Integer cId) {
+		// TODO Auto-generated method stub
+		return this.curriculumMapper.findCurriculumById(cId);
 	}
 
 }

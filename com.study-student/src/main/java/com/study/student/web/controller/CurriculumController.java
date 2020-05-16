@@ -24,9 +24,13 @@ public class CurriculumController {
 	@Autowired
 	private CurriculumService curriculumService;
 	@RequestMapping(value = "findCurriculums")
-	public PageInfo<Curriculum> findCurriculums(String ceId, String isPay,PageDto dto ,Integer page, Integer pageSize) {
+	public PageInfo<Curriculum> findCurriculums(String ceId, String isPay,String cname,PageDto dto ,Integer page, Integer pageSize) {
 		dto.setPage(page);
 		dto.setPageSize(pageSize);
-		return this.curriculumService.findCurriculums(ceId, isPay, dto);
+		return this.curriculumService.findCurriculums(ceId, isPay,cname,dto);
 	}
+	@RequestMapping(value = "findCurriculumById")
+	public Curriculum findCurriculumById(Integer cId) {
+		return this.curriculumService.findCurriculumById(cId);
+	};
 }

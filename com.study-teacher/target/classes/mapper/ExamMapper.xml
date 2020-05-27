@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.exam.mapper.ExamMapper">
+	<resultMap id="BaseResultMap"
+		type="com.newer.exam.domain.Exam">
+		<id column="eid" jdbcType="INTEGER" property="eid" />
+		<result column="tid" jdbcType="INTEGER" property="tid" />
+		<result column="ce_id" jdbcType="INTEGER" property="ceId" />
+		<result column="begin_time" jdbcType="TIMESTAMP"
+			property="beginTime" />
+		<result column="end_time" jdbcType="TIMESTAMP"
+			property="endTime" />
+		<result column="create_time" jdbcType="TIMESTAMP"
+			property="createTime" />
+		<result column="exam_code" jdbcType="VARCHAR"
+			property="examCode" />
+		<result column="exam_time_hour" jdbcType="INTEGER"
+			property="examTimeHour" />
+		<result column="exam_time_minute" jdbcType="INTEGER"
+			property="examTimeMinute" />
+		<result column="exam_time_second" jdbcType="INTEGER"
+			property="examTimeSecond" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		eid, tid, ce_id, begin_time, end_time, create_time,
+		exam_code,
+		exam_time_hour, exam_time_minute,
+		exam_time_second, exam_time
+	</sql>
+	<select id="selectByPrimaryKey"
+		parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from Exam where eid = #{eid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from Exam where eid = #{eid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.newer.exam.domain.Exam"> insert into Exam (eid, tid,
+		ce_id,
+		begin_time, end_time, create_time, exam_code, exam_time_hour, exam_time_minute,
+		exam_time_second, exam_time) values (#{eid,jdbcType=INTEGER},
+		#{tid,jdbcType=INTEGER},
+		#{ceId,jdbcType=INTEGER}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP},
+		#{createTime,jdbcType=TIMESTAMP}, #{examCode,jdbcType=VARCHAR},
+		#{examTimeHour,jdbcType=INTEGER},
+		#{examTimeMinute,jdbcType=INTEGER}, #{examTimeSecond,jdbcType=INTEGER}, #{examTime,jdbcType=TIME})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.newer.exam.domain.Exam">
+		insert into Exam
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="eid 
+		!= null"> eid, </if>
+			<if test="tid != null"> tid, </if>
+			<if test="ceId != 
+		null"> ce_id, </if>
+			<if test="beginTime != null"> begin_time, </if>
+			<if test="endTime 
+		!= null"> end_time, </if>
+			<if test="createTime != null"> create_time, </if>
+			<if test="examCode != null"> exam_code, </if>
+			<if test="examTimeHour != null">
+				exam_time_hour,
+			</if>
+			<if test="examTimeMinute != null"> exam_time_minute,
+			</if>
+			<if test="examTimeSecond != null"> exam_time_second, </if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="eid != null"> #{eid,jdbcType=INTEGER}, </if>
+			<if test="tid != null">
+				#{tid,jdbcType=INTEGER},
+			</if>
+			<if test="ceId != null"> #{ceId,jdbcType=INTEGER},
+			</if>
+			<if test="beginTime != null"> #{beginTime,jdbcType=TIMESTAMP}, </if>
+			<if test="endTime != null"> #{endTime,jdbcType=TIMESTAMP}, </if>
+			<if test="createTime 
+		!= null"> #{createTime,jdbcType=TIMESTAMP}, </if>
+			<if test="examCode != null">
+				#{examCode,jdbcType=VARCHAR},
+			</if>
+			<if test="examTimeHour != null"> #{examTimeHour,jdbcType=INTEGER},
+			</if>
+			<if test="examTimeMinute != null"> #{examTimeMinute,jdbcType=INTEGER},
+			</if>
+			<if test="examTimeSecond != null"> #{examTimeSecond,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.newer.exam.domain.Exam">
+		update Exam
+		<set>
+			<if test="tid != null"> tid = #{tid,jdbcType=INTEGER},
+			</if>
+			<if test="ceId != null"> ce_id = #{ceId,jdbcType=INTEGER}, </if>
+			<if test="beginTime != null"> begin_time = #{beginTime,jdbcType=TIMESTAMP}, </if>
+			<if test="endTime != null"> end_time = #{endTime,jdbcType=TIMESTAMP}, </if>
+			<if test="createTime != null"> create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="examCode != null"> exam_code = #{examCode,jdbcType=VARCHAR},
+			</if>
+			<if test="examTimeHour != null"> exam_time_hour = #{examTimeHour,jdbcType=INTEGER},
+			</if>
+			<if test="examTimeMinute != null"> exam_time_minute = #{examTimeMinute,jdbcType=INTEGER},
+			</if>
+			<if test="examTimeSecond != null"> exam_time_second = #{examTimeSecond,jdbcType=INTEGER},
+			</if>
+			<if test="examTime != null"> exam_time = #{examTime,jdbcType=TIME},
+			</if>
+		</set>
+		where eid = #{eid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.newer.exam.domain.Exam"> update Exam set tid = #{tid,jdbcType=INTEGER},
+		ce_id = #{ceId,jdbcType=INTEGER}, begin_time =
+		#{beginTime,jdbcType=TIMESTAMP},
+		end_time = #{endTime,jdbcType=TIMESTAMP}, create_time =
+		#{createTime,jdbcType=TIMESTAMP},
+		exam_code = #{examCode,jdbcType=VARCHAR}, exam_time_hour =
+		#{examTimeHour,jdbcType=INTEGER},
+		exam_time_minute = #{examTimeMinute,jdbcType=INTEGER}
+		where eid = #{eid,jdbcType=INTEGER}
+	</update>
+	<select id="findAllCount" resultType="java.lang.Integer">
+		select count(*) from Exam
+	</select>
+
+	<resultMap id="PaperInfoResultMap"
+		type="com.newer.exam.viewmodel.dashboard.PaperInfo">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="limit_start_time" jdbcType="TIMESTAMP"
+			property="limitStartTime" />
+		<result column="limit_end_time" jdbcType="TIMESTAMP"
+			property="limitEndTime" />
+	</resultMap>
+
+	<resultMap id="ExamByCeIdDto"
+		type="com.newer.exam.dto.ExamDto">
+		<id column="eid" jdbcType="INTEGER" property="eid" />
+		<result column="tid" jdbcType="INTEGER" property="tid" />
+		<result column="ce_id" jdbcType="INTEGER" property="ceId" />
+		<result column="begin_time" jdbcType="TIMESTAMP"
+			property="beginTime" />
+		<result column="end_time" jdbcType="TIMESTAMP"
+			property="endTime" />
+		<result column="create_time" jdbcType="TIMESTAMP"
+			property="createTime" />
+		<result column="exam_code" jdbcType="VARCHAR"
+			property="examCode" />
+		<result column="exam_time_hour" jdbcType="INTEGER"
+			property="examTimeHour" />
+		<result column="exam_time_minute" jdbcType="INTEGER"
+			property="examTimeMinute" />
+		<result column="exam_time_second" jdbcType="INTEGER"
+			property="examTimeSecond" />
+		<association
+			javaType="com.newer.exam.domain.ExercisesClassify"
+			property="exercisesClassify">
+			<id column="ce_id" property="ceId" />
+			<result column="ce_name" property="ceName" />
+		</association>
+		<association javaType="com.newer.exam.domain.Teacher"
+			property="teacher">
+			<id column="tid" property="tid" />
+			<result column="realname" property="realname" />
+		</association>
+	</resultMap>
+
+	<select id="page"
+		parameterType="com.newer.exam.viewmodel.exam.ExamPaperPageRequestVM"
+		resultMap="ExamByCeIdDto">
+		SELECT a.eid, a.begin_time, a.end_time, a.create_time,
+		a.exam_code,a.exam_time, b.ce_id,
+		b.ce_name,c.tid,c.realname FROM Exam
+		a,
+		Exercises_classify b ,Tea_User
+		c WHERE a.ce_id = b.ce_id and a.tid =
+		c.tid
+	</select>
+
+	<select id="examToVM" parameterType="java.lang.Integer"
+		resultMap="ExamByCeIdDto">
+		SELECT a.eid, a.begin_time, a.end_time, a.create_time,
+		a.exam_code,a.exam_time_hour,a.exam_time_minute, b.ce_id,
+		b.ce_name,c.tid,c.realname FROM Exam a,
+		Exercises_classify b ,Tea_User
+		c WHERE a.ce_id = b.ce_id and a.tid =
+		c.tid and a.eid =
+		#{eid,jdbcType=INTEGER}
+	</select>
+</mapper>

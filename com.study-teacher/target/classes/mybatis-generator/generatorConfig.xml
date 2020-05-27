@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <properties resource="application-dev.yml"/>
+
+    <context id="generator" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- jdbc -->
+        <jdbcConnection connectionURL="jdbc:mysql://106.13.209.161:5186/learning_system?useSSL=false&amp;useUnicode=true&amp;serverTimezone=UTC&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;allowPublicKeyRetrieval=true"
+        				driverClass="com.mysql.cj.jdbc.Driver" 
+                        userId="root" 
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- domain -->
+        <javaModelGenerator targetPackage="com.newer.exam.domain"
+                            targetProject="com.study-teacher">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mapper xml -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="com.study-teacher">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- repository -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.newer.exam.mapper"
+                             targetProject="com.study-teacher">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+		<!-- 教师信息表 -->
+        <!-- <table tableName="Tea_User" domainObjectName="Teacher" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+		<!-- 认证信息表 -->
+      <!--  <table tableName="authentication" domainObjectName="Authentication" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+
+		<!-- 试题表 -->
+        <!-- <table tableName="Exercises" domainObjectName="Exercises" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+
+		<!-- 类别表 -->
+        <!-- <table tableName="Exercises_classify" domainObjectName="ExercisesClassify" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+
+
+		<!-- 课程表 -->
+        <!-- <table tableName="Curriculum" domainObjectName="Curriculum" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+		<!-- 课节表 -->
+        <!-- <table tableName="Section" domainObjectName="Section" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+
+		<!-- 评论表 -->
+        <!-- <table tableName="Comment" domainObjectName="Comment"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+
+
+
+		<!-- 试卷表 -->
+        <table tableName="Exam" domainObjectName="Exam" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+		<!-- 成绩表 -->
+        <!-- <table tableName="Grade" domainObjectName="Grade" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+
+		<!-- 试卷从表 -->
+        <!-- <table tableName="Test_Paper" domainObjectName="TestPaper" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table> -->
+
+
+
+<!-- 
+       <table tableName="Grade" domainObjectName="Grade"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="t_user_token" domainObjectName="UserToken" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+-->
+
+
+     <!--   <table tableName="t_subject" domainObjectName="Subject" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+
+        <table tableName="t_text_content" domainObjectName="TextContent" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="content" jdbcType="VARCHAR" />
+        </table>
+
+
+
+        <table tableName="t_user_event_log" domainObjectName="UserEventLog" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="content" jdbcType="VARCHAR" />
+        </table>-->
+
+    </context>
+</generatorConfiguration>

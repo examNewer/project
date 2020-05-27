@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.exam.mapper.AuthenticationMapper">
+  <resultMap id="BaseResultMap" type="com.newer.exam.domain.Authentication">
+    <id column="authentication_id" jdbcType="INTEGER" property="authenticationId" />
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="authentication_name" jdbcType="VARCHAR" property="authenticationName" />
+    <result column="identity" jdbcType="VARCHAR" property="identity" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="affirm" jdbcType="VARCHAR" property="affirm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    authentication_id, tid, authentication_name, identity, phone, school, affirm
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from authentication
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from authentication
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.newer.exam.domain.Authentication">
+    insert into authentication (authentication_id, tid, authentication_name, 
+      identity, phone, school, 
+      affirm)
+    values (#{authenticationId,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{authenticationName,jdbcType=VARCHAR}, 
+      #{identity,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
+      #{affirm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.newer.exam.domain.Authentication">
+    insert into authentication
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="authenticationId != null">
+        authentication_id,
+      </if>
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="authenticationName != null">
+        authentication_name,
+      </if>
+      <if test="identity != null">
+        identity,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="affirm != null">
+        affirm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="authenticationId != null">
+        #{authenticationId,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="authenticationName != null">
+        #{authenticationName,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="affirm != null">
+        #{affirm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.newer.exam.domain.Authentication">
+    update authentication
+    <set>
+      <if test="tid != null">
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="authenticationName != null">
+        authentication_name = #{authenticationName,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        identity = #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="affirm != null">
+        affirm = #{affirm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.newer.exam.domain.Authentication">
+    update authentication
+    set tid = #{tid,jdbcType=INTEGER},
+      authentication_name = #{authenticationName,jdbcType=VARCHAR},
+      identity = #{identity,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      affirm = #{affirm,jdbcType=VARCHAR}
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </update>
+</mapper>

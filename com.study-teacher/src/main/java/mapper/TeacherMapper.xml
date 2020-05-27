@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.exam.mapper.TeacherMapper">
+  <resultMap id="BaseResultMap" type="com.newer.exam.domain.Teacher">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="is_authen" jdbcType="VARCHAR" property="isAuthen" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="headimg" jdbcType="VARCHAR" property="headimg" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="bg_img3" jdbcType="VARCHAR" property="bgImg3" />
+    <result column="bg_img1" jdbcType="VARCHAR" property="bgImg1" />
+    <result column="bg_img2" jdbcType="VARCHAR" property="bgImg2" />
+    <result column="brief_img" jdbcType="VARCHAR" property="briefImg" />
+    <result column="introduce_img" jdbcType="VARCHAR" property="introduceImg" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="detail_intorduce" jdbcType="VARCHAR" property="detailIntorduce" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="is_enter" jdbcType="INTEGER" property="isEnter" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, username, realname, pwd, is_authen, role, headimg, sex, bg_img3, bg_img1, bg_img2, 
+    brief_img, introduce_img, brief, detail_intorduce, status, is_enter
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Tea_User
+    where tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Tea_User
+    where tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.newer.exam.domain.Teacher">
+    insert into Tea_User (tid, username, realname, 
+      pwd, is_authen, role, 
+      headimg, sex, bg_img3, 
+      bg_img1, bg_img2, brief_img, 
+      introduce_img, brief, detail_intorduce, 
+      status, is_enter)
+    values (#{tid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
+      #{pwd,jdbcType=VARCHAR}, #{isAuthen,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, 
+      #{headimg,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{bgImg3,jdbcType=VARCHAR}, 
+      #{bgImg1,jdbcType=VARCHAR}, #{bgImg2,jdbcType=VARCHAR}, #{briefImg,jdbcType=VARCHAR}, 
+      #{introduceImg,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, #{detailIntorduce,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{isEnter,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.newer.exam.domain.Teacher">
+    insert into Tea_User
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="pwd != null">
+        pwd,
+      </if>
+      <if test="isAuthen != null">
+        is_authen,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="headimg != null">
+        headimg,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="bgImg3 != null">
+        bg_img3,
+      </if>
+      <if test="bgImg1 != null">
+        bg_img1,
+      </if>
+      <if test="bgImg2 != null">
+        bg_img2,
+      </if>
+      <if test="briefImg != null">
+        brief_img,
+      </if>
+      <if test="introduceImg != null">
+        introduce_img,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="detailIntorduce != null">
+        detail_intorduce,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="isEnter != null">
+        is_enter,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuthen != null">
+        #{isAuthen,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="headimg != null">
+        #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg3 != null">
+        #{bgImg3,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg1 != null">
+        #{bgImg1,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg2 != null">
+        #{bgImg2,jdbcType=VARCHAR},
+      </if>
+      <if test="briefImg != null">
+        #{briefImg,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceImg != null">
+        #{introduceImg,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="detailIntorduce != null">
+        #{detailIntorduce,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="isEnter != null">
+        #{isEnter,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.newer.exam.domain.Teacher">
+    update Tea_User
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuthen != null">
+        is_authen = #{isAuthen,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="headimg != null">
+        headimg = #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg3 != null">
+        bg_img3 = #{bgImg3,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg1 != null">
+        bg_img1 = #{bgImg1,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg2 != null">
+        bg_img2 = #{bgImg2,jdbcType=VARCHAR},
+      </if>
+      <if test="briefImg != null">
+        brief_img = #{briefImg,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceImg != null">
+        introduce_img = #{introduceImg,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="detailIntorduce != null">
+        detail_intorduce = #{detailIntorduce,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="isEnter != null">
+        is_enter = #{isEnter,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.newer.exam.domain.Teacher">
+    update Tea_User
+    set username = #{username,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      is_authen = #{isAuthen,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      headimg = #{headimg,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      bg_img3 = #{bgImg3,jdbcType=VARCHAR},
+      bg_img1 = #{bgImg1,jdbcType=VARCHAR},
+      bg_img2 = #{bgImg2,jdbcType=VARCHAR},
+      brief_img = #{briefImg,jdbcType=VARCHAR},
+      introduce_img = #{introduceImg,jdbcType=VARCHAR},
+      brief = #{brief,jdbcType=VARCHAR},
+      detail_intorduce = #{detailIntorduce,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      is_enter = #{isEnter,jdbcType=INTEGER}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  
+ <select id="getTeacherByUserNamePwd" resultMap="BaseResultMap">
+  select 
+  <include refid="Base_Column_List" />
+  from Tea_User
+  where username=#{username} and pwd=#{pwd}
+  </select>
+</mapper>

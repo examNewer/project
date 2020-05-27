@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.exam.mapper.ExercisesClassifyMapper">
+  <resultMap id="BaseResultMap" type="com.newer.exam.domain.ExercisesClassify">
+    <id column="ce_id" jdbcType="INTEGER" property="ceId" />
+    <result column="ce_name" jdbcType="VARCHAR" property="ceName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ce_id, ce_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Exercises_classify
+    where ce_id = #{ceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Exercises_classify
+    where ce_id = #{ceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.newer.exam.domain.ExercisesClassify">
+    insert into Exercises_classify (ce_id, ce_name)
+    values (#{ceId,jdbcType=INTEGER}, #{ceName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.newer.exam.domain.ExercisesClassify">
+    insert into Exercises_classify
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ceId != null">
+        ce_id,
+      </if>
+      <if test="ceName != null">
+        ce_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ceId != null">
+        #{ceId,jdbcType=INTEGER},
+      </if>
+      <if test="ceName != null">
+        #{ceName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.newer.exam.domain.ExercisesClassify">
+    update Exercises_classify
+    <set>
+      <if test="ceName != null">
+        ce_name = #{ceName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ce_id = #{ceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.newer.exam.domain.ExercisesClassify">
+    update Exercises_classify
+    set ce_name = #{ceName,jdbcType=VARCHAR}
+    where ce_id = #{ceId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List" />
+  	from Exercises_classify
+  </select>
+</mapper>
